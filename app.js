@@ -1,10 +1,17 @@
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
+
+const HIDDEN_CLASSNAME = "hidden";
+
 
 function onLoginSubmit(event){
     event.preventDefault();
-    console.log(loginInput.value);
+    const username = loginInput.value;
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+
+    greeting.innerText = `Hello ${username}`;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
-// 'submit' - when press Enter or the button
 loginForm.addEventListener("submit", onLoginSubmit);
